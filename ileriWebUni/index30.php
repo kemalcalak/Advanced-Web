@@ -73,7 +73,7 @@ class Asker
 	}
 }
 
-//sınıfının kendi constructerı yoksa extendslediği sınıfftan çeker. class dan oluşturulan nesne kendi clasının içindeki fonksiyonunu çalıştırır.
+//sınıfının kendi constructerı yoksa extendslediği sınıftan çeker. class dan oluşturulan nesne kendi clasının içindeki fonksiyonunu çalıştırır.
 class Yuzbasi extends Asker 
 {
 	function selam()
