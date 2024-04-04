@@ -1,7 +1,6 @@
 <?php
 //Bir fonksiyon birden fazla parametre ile çalışıyorsa buna overload fonksiyon denir.(mysqli_connect fonksiyonu 4 parametre de 5 parametrede aldığı için overload fonksiyondur.)
 //override :hükmünü kaldırmak anlamına gelir.En çok miraslama durumlarında karşılaşırız. 
-//class Araç tanımladık. Araç içinde çeşitli özellik belirtilmiş.içinde sürüş diye bir fonksiyon olduğunu farzedelim ve bas gaza git yazdıralım. manuel bir araba için bu fonksiyonu kullanamayız çünkü gaza basmak yeterli değildir burada hükmünü yitirmiş olur fonksiyon.
 
 class merhabadunya
 {
