@@ -1,0 +1,57 @@
+
+body {
+    margin: 0px;
+  }
+  .container {
+    margin: 0px 30px;
+    display: flex;
+  }
+  .header {
+    background-color: darkblue;
+    border-bottom: 1px solid darkblue;
+  }
+  .content {
+    padding: 120px 0px;
+  }
+  .homeLeft {
+    width: 70%;
+  }
+  .homeRight {
+    width: 30%;
+  }
+  .subForm {
+    display: flex;
+  }
+  .form-group {
+    margin: 2px 4px;
+    padding: 2px 0px;
+  }
+  #title1 {
+    color: white;
+  }
+  #width100 {
+    width: 100%;
+  }
+  #btn {
+    width: 40%;
+    padding: 10px;
+    background-color: green;
+    color: white;
+    border: none;
+    margin: 10px 0px;
+  }
+  .form {
+    height: 300px;
+  }
+  .form-group2 {
+    margin: 30px 0px;
+  }
+  .forminp {
+    height: 30px;
+    border-radius: 5px;
+  }
+  #btn2 {
+    background-color: blue;
+    color: white;
+    margin: 15px 0px;
+  }

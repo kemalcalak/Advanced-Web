@@ -42,18 +42,18 @@ echo '</table></center></body>';
 function sayfala($sayfa)
 {
     global $baglanti;
-    $sqltoplamkayit = "select count(*) as toplamsayi from games where swf not like '%oyunskorlarim%'";
-    $sorgu = mysqli_query($baglanti, $sqltoplamkayit);
-    $toplamkitap = mysqli_fetch_assoc($sorgu);
+    $sqltoplamkayit = "select count(*) as toplamsayi from games where swf not like '%oyunskorlarim%'"; //swf:oyunskorlarim içermeyen kayıtların sayısını bulan sorgu.
+    $sorgu = mysqli_query($baglanti, $sqltoplamkayit); //$sqltoplamkayit : toplam kayıt sayısını bulan sorgu.
+    $toplamkitap = mysqli_fetch_assoc($sorgu); //toplam kayıt sayısını diziye atar.
     if ($sayfa >= 2)
         //örnegin 30. sayfada olduğumuzu düşünelim << için 1 eksiği yani 29 yazılacak.
         echo '<a href=index26.php?sayfa=' . ($sayfa - 1) . '> << </a>';
     //ceil ile bölüm yuvarlanmış olur açıkta kayıt kalmaz.
-    for ($j = 1; $j <= ceil($toplamkitap["toplamsayi"] / 10); $j++) {
+    for ($j = 1; $j <= ceil($toplamkitap["toplamsayi"] / 10); $j++) { //ceil($toplamkitap["toplamsayi"] : toplam kayıt sayısını 10 a böldüğümüzde kaç sayfa olacağını buluruz. ceil ile yukarı yuvarlar.
         if ($sayfa == $j)
             echo '&nbsp;&nbsp;<b>' . $sayfa . '</b>&nbsp;&nbsp;';
         else
-            echo '&nbsp;&nbsp;<a href=index26.php?sayfa=' . $j . '</a>&nbsp;&nbsp;';
+            echo '&nbsp;&nbsp;<a href=index26.php?sayfa=' . $j . '</a>&nbsp;&nbsp;'; //&nbsp; boşluk bırakır.
         if ($j % 11 == 0)
             echo '<br />';
     }

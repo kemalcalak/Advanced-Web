@@ -31,7 +31,7 @@ if ($islem == "basla") {
     Selam::deneme();
     echo "<br/>";
     $selam = new Selam();
-    $selam->yazdir(); //fonksiyonu çağırmak için yukarıda bir nesne oluşturduk ve nesne ile fonksiyonu çağırdık.
+    $selam->yazdir("Hasan"); //fonksiyonu çağırmak için yukarıda bir nesne oluşturduk ve nesne ile fonksiyonu çağırdık.
 
     echo "<br/><br/>";
     class Merhaba
@@ -43,7 +43,7 @@ if ($islem == "basla") {
         function yazdir()
         {
             //dışarıdan bir değişkene erişilirken this keywordünü kullanmamız gerekir.ilgili sınıf üzerinden nesneye atıf yapan bir işaretçidir.Sınıfın içerisinde bir değişken var aynı isimde bir de sınfın methodunda bir değişken varsa ilgili method içerisinde methodları karıştırmamak adına sınıf değişkenini belirtirken this kullanılır.
-            echo "Hoþgeldin" . $this->isim;
+            echo "Hoşgeldin" . $this->isim;
         }
     }
     $merhabalar = new Merhaba();
@@ -73,7 +73,12 @@ if ($islem == "basla") {
     {
         public $deneme = 'Yes';
         private $ozel = "Özel";
+        private $isim = "Hasan";
         //sınıfın ismi ile tanımlanan fonsiyon yapıcı(contructer) fonksiyondur
+        function Yapici($isim)
+        {
+            echo "Yapıcı Örneğe Hoşgeldiniz" . $isim;
+        }
         function __construct($isim)
         {
             echo "Yapıcı Örneğe Hoşgeldiniz" . $isim;
@@ -93,7 +98,7 @@ if ($islem == "basla") {
     echo "<br/>";
     unset($yapici); //değişken yok edildi(destruct fonksiyonunu çağırıp yok etme yapar ekrana güle güle yazdırılır)
     echo "<br/>";
-    echo $yapici->deneme . '<br/>'; //nesne silindiği için hata verir
+    //echo $yapici->deneme . '<br/>'; //nesne silindiği için hata verir
 } else {
     echo '<form name="form1" method="POST" action="index27.php?islem=basla">
 		<input type="text" name"yaricap"/>

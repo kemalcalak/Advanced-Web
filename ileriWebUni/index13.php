@@ -15,7 +15,7 @@
         echo "Sorun var<br/>";
 
     setcookie("sebze[1]", "Havuç"); 
-    setcookie("sebze[2]", "Marul", time() + 31536000, "/"); 
+    setcookie("sebze[2]", "Marul", time() + 31536000, "/"); //1.parametre isim, 2.parametre değer, 3.parametre süre, 4.parametre path
     setcookie("sebze[3]", md5("Ispanak"), time() + 50 * 80 * 60); 
     setcookie("sebze[4]", "Domates");
 

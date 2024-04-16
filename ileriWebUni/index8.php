@@ -5,7 +5,7 @@ $kitaplar[] = "Dreamweaver";
 
 print_r($kitaplar); 
 
-echo "<pre>";
+echo "<pre>"; //pre etiketi ile yazdırılan dizinin daha düzenli görünmesini sağlar
 print_r($kitaplar); //print_r fonksiyonu ile dizi içeriğini ekrana yazdırma
 echo "</pre>";
 
