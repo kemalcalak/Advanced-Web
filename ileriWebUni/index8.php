@@ -315,7 +315,7 @@ $sayisaldizi = array(1, 4, 8, 3); //string dönüştürmesi de yapabilir
 echo array_sum($sayisaldizi) . "<br/>";	// array_sum: dizideki değerlerin toplamını döndürür
 
 //diziden rastgele değer seçme
-echo $sayisaldizi[array_rand($sayisaldizi, 1)] . "<br/>"; // array_rand: diziden rastgele değer seçer 
+echo $sayisaldizi[array_rand($sayisaldizi, 1)] . "<br/>"; // array_rand: diziden rastgele değer seçer. 1.parametre dizi, 2.parametre kaç tane değer seçileceğini belirtir
 
 $rand_keys = array_rand($sayisaldizi, 2);	
 echo $sayisaldizi[$rand_keys[0]] . "<br/>";

@@ -14,3 +14,4 @@ function __autoload($classadi)
 $gunaydin = new gunaydin('Hasan');
 echo '<br/>';
 $aksam = new iyiaksamlar('Jale');
+?>
