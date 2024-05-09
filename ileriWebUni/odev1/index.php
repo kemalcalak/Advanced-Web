@@ -1,86 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+$sv = "localhost";
+$username = "root";
+$password = "";
+$dbname = "facebook";
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
-  <title>Document</title>
-</head>
+require("site.html");
+if (@$_COOKIE["email"] == "admin" && @$_COOKIE["password"] == md5("123")) {
+	header("Location: home.php");
+}
 
-<body>
-  <div class="home">
-    <div class="header">
-      <div class="container">
-        <div class="homeLeft">
-          <h2>
-            <a href="#" id="title1">Circult Analysis</a>
-          </h2>
 
-          <a href="#" id="title1">English</a>
-          <a href="#" id="title1">Türkçe</a>
-        </div>
-        <div class="homeRight">
-          <form method="POST" action="http://localhost/Advanced-Web/ileriWebUni/odev1/index2.php">
-            <div class="subForm">
-              <div class="form-group">
-                <label>E-Mail</label>
-                <input type="text" name="email" />
-                <input type="checkbox" />
-                <label>Keep Me Signed in</label>
-              </div>
-              <div class="form-group">
-                <label>Password</label>
-                <input type="password" name="password" />
-                <a href="#">Forget Password</a>
-              </div>
-              <div class="form-group">
-                <input type="submit" value="Log in" id="btn2" />
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
+$islem = "";
+if (isset($_GET["islem"])) {
 
-    <div class="content">
-      <div class="container">
-        <div class="homeLeft">asöjdkjasdöjksajdlkasjdlds</div>
-        <div class="homeRight">
-          <form action="">
-            <div class="form">
-              <h3>Sign Up</h3>
-              <h4>It's Quck And Easy</h4>
-              <div class="form-group2">
-                <input class="forminp" type="email" placeholder="E-Mail Adress" id="width100" />
-              </div>
-              <div class="form-group2">
-                <select class="forminp" placeholder="Job" name="job" id="width100">
-                  <option>Job</option>
-                  <option value="software">Software Enginering</option>
-                  <option value="civil">Civil Enginering</option>
-                </select>
-              </div>
-              <div class="form-group2">
-                <input class="forminp" type="password" placeholder="Password" id="width100" />
-              </div>
-              <div class="form-group2">
-                <input class="forminp" type="password" placeholder="Confirm Password" id="width100" />
-              </div>
-              <div class="form-group2">
-                <input type="submit" value="Sıgn Up" id="btn" />
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-  <?php
-  
-  
-  ?>
+	$islem = $_GET["islem"];
+	if ($islem == "login") {
+		$db = new mysqli($sv, $username, $password, $dbname);
 
-</body>
+		if ($db->connect_error) {
+			die("bağlantı hatası: " . $db->connect_error);
+		}
 
-</html>
+		@$email = $_POST['email'];
+		@$password = $_POST['password'];
+
+
+		$sql = "SELECT * FROM user WHERE passsword = '$password' AND email = '$email' ";
+		$cikti = $db->query($sql);
+
+		if ($cikti->num_rows > 0) {
+			echo "bağlantı başarılı";
+			setcookie('email', $email, time() + 100);
+			setcookie('password', md5($password), time() + 100);
+			header("Location: http://localhost/Advanced-Web/ileriWebUni/odev1/home.php");
+		} else if ($_COOKIE["email"] == "admin" && $_COOKIE["password"] == md5("123")) {
+			setcookie('email', $email, time() + 100);
+			setcookie('password', md5($password), time() + 100);
+			header("Location: home.php");
+		} else {
+			header("Location: http://localhost/Advanced-Web/ileriWebUni/odev1/index.php");
+			echo "bağlantı başarısız";
+		}
+		$db->close();
+	}
+}
