@@ -28,14 +28,13 @@ if (isset($_COOKIE['email']) && isset($_COOKIE['password'])) {
     $email = $_COOKIE['email'];
     $password = $_COOKIE['password'];
     $name = $_COOKIE['name'];
+    $job = $_COOKIE['job'];
     $login = 1;
 }
 
 $email = $_POST['email'] ?? '';
 $password = $_POST['password'] ?? '';
 $checkbox = $_POST['checkbox'] ?? '';
-
-
 
 $islem = $_GET["islem"] ?? '';
 
@@ -45,16 +44,19 @@ if ($islem == "login") {
     if ($email == "admin" && $password == "123") {
         $login = 1;
         $name = "admin";
+        $job = "admin";
     }
 
     if (@$result->num_rows > 0) {
         $row = $result->fetch_assoc();
         $name = $row['username'];
+        $job = $row['job'];
         $login = 1;
         if ($checkbox == "on") {
             setcookie('email', $email, time() + 10000000);
             setcookie('password', md5($password), time() + 1000000);
             setcookie('name', $name, time() + 1000000);
+            setcookie('job', $job, time() + 1000000);
         }
     } else {
         if ($lang == "tr") {
@@ -68,7 +70,25 @@ if ($islem == "login") {
     setcookie('email', '', time() - 1000000);
     setcookie('password', '', time() - 1000000);
     setcookie('name', '', time() - 1000000);
+    setcookie('job', '', time() - 1000000);
     $login = 0;
+} elseif ($islem == "signup") {
+    $username = $_POST['username'] ?? '';
+    $email = $_POST['email'] ?? '';
+    $password = $_POST['password'] ?? '';
+    $confirm_password = $_POST['confirm_password'] ?? '';
+    $job = $_POST['job'] ?? '';
+
+    if ($password != $confirm_password) {
+        echo ($lang == "tr") ? "Şifreler eşleşmiyor!" : "Passwords do not match!";
+    } else {
+        $sql = "INSERT INTO user (username, email, passsword, job) VALUES ('$username', '$email', '$password', '$job')";
+        if ($db->query($sql) === TRUE) {
+            echo ($lang == "tr") ? "Kayıt başarılı!" : "Registration successful!";
+        } else {
+            echo ($lang == "tr") ? "Kayıt başarısız: " . $db->error : "Registration failed: " . $db->error;
+        }
+    }
 }
 
 $db->close();

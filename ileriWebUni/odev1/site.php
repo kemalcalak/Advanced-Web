@@ -12,8 +12,8 @@ $text = [
         'quick_easy' => "It's Quick And Easy",
         'email_address' => 'E-Mail Address',
         'job' => 'Job',
-        'software_engineering' => 'Software Engineering',
-        'civil_engineering' => 'Civil Engineering',
+        'software' => 'Software Engineering',
+        'civil' => 'Civil Engineering',
         'confirm_password' => 'Confirm Password',
         'signup_button' => 'Sign Up',
         'welcome' => 'Welcome, ',
@@ -30,8 +30,8 @@ $text = [
         'quick_easy' => 'Hızlı ve Kolay',
         'email_address' => 'E-Posta Adresi',
         'job' => 'Meslek',
-        'software_engineering' => 'Yazılım Mühendisliği',
-        'civil_engineering' => 'İnşaat Mühendisliği',
+        'software' => 'Yazılım Mühendisliği',
+        'civil' => 'İnşaat Mühendisliği',
         'confirm_password' => 'Şifreyi Onayla',
         'signup_button' => 'Kayıt Ol',
         'welcome' => 'Hoşgeldiniz, ',
@@ -57,7 +57,7 @@ $text = [
                     <h2>
                         <a href="#" id="title1"><?= $text[$lang]['title'] ?></a>
                     </h2>
-                    <a href="http://localhost/Advanced-Web/ileriWebUni/odev1/?lang=tr" id="title1">English</a>
+                    <a href="http://localhost/Advanced-Web/ileriWebUni/odev1/?lang=en" id="title1">English</a>
                     <a href="http://localhost/Advanced-Web/ileriWebUni/odev1/?lang=tr" id="title1">Türkçe</a>
                 </div>
                 <div class="homeRight">
@@ -82,38 +82,56 @@ $text = [
                                 </div>
                             </form>';
                     } else {
-                        echo '<div class="logout-container">';
+                        echo '<div class="logout-container" style="display=flex">';
+                        #echo '<img src="pp.jpeg" width="60" height="80">';
                         echo '<h3 style="color: white;">' . $text[$lang]['welcome'] . $name . '</h3>';
-                        echo '<a href="http://localhost/Advanced-Web/ileriWebUni/odev1/?islem=logout" id="btn3">' . $text[$lang]['logout'] . '</a>';
+                        echo '<a href="http://localhost/Advanced-Web/ileriWebUni/odev1/?islem=logout" style="padding: 10px 20px;
+                        background-color: #4caf50;
+                        border: none;
+                        color: white;
+                        text-align: center;
+                        text-decoration: none;
+                        display: inline-block;
+                        font-size: 16px;
+                        margin: 4px 2px;
+                        cursor: pointer;
+                        border-radius: 4px;">' . $text[$lang]['logout'] . '</a>';
                         echo '</div>';
                     }
                     ?>
+                    
+                        
+                    </div>
                 </div>
             </div>
         </div>
+        <?php if ($login == 0): ?>
         <div class="content">
             <div class="container">
                 <div class="homeLeft">asöjdkjasdöjksajdlkasjdlds</div>
                 <div class="homeRight">
-                    <form action="">
+                    <form method="POST" action="http://localhost/Advanced-Web/ileriWebUni/odev1/?islem=signup">
                         <div class="form">
                             <h3><?= $text[$lang]['signup'] ?></h3>
                             <h4><?= $text[$lang]['quick_easy'] ?></h4>
                             <div class="form-group2">
-                                <input class="forminp" type="email" placeholder="<?= $text[$lang]['email_address'] ?>" id="width100" />
+                                <input class="forminp" type="text" name="username" placeholder="Username" id="width100" />
+                            </div>
+                            <div class="form-group2">
+                                <input class="forminp" type="email" name="email" placeholder="<?= $text[$lang]['email_address'] ?>" id="width100" />
                             </div>
                             <div class="form-group2">
                                 <select class="forminp" name="job" id="width100">
                                     <option><?= $text[$lang]['job'] ?></option>
-                                    <option value="software"><?= $text[$lang]['software_engineering'] ?></option>
-                                    <option value="civil"><?= $text[$lang]['civil_engineering'] ?></option>
+                                    <option value="software"><?= $text[$lang]['software'] ?></option>
+                                    <option value="civil"><?= $text[$lang]['civil'] ?></option>
                                 </select>
                             </div>
                             <div class="form-group2">
-                                <input class="forminp" type="password" placeholder="<?= $text[$lang]['password'] ?>" id="width100" />
+                                <input class="forminp" type="password" name="password" placeholder="<?= $text[$lang]['password'] ?>" id="width100" />
                             </div>
                             <div class="form-group2">
-                                <input class="forminp" type="password" placeholder="<?= $text[$lang]['confirm_password'] ?>" id="width100" />
+                                <input class="forminp" type="password" name="confirm_password" placeholder="<?= $text[$lang]['confirm_password'] ?>" id="width100" />
                             </div>
                             <div class="form-group2">
                                 <input type="submit" value="<?= $text[$lang]['signup_button'] ?>" id="btn" />
@@ -123,6 +141,7 @@ $text = [
                 </div>
             </div>
         </div>
+        <?php endif; ?>
     </div>
 </body>
 
