@@ -1,4 +1,6 @@
-<?php ob_start(); /*içeriği göndermeden önce bufferla  */ ?>
+<?php ob_start(); /*içeriği göndermeden önce bufferla  */ ?> 
+<?php //buffer: içeriği saklamak için kullanılan bir alandır  
+?>
 <!DOCTYPE html>
 <html>
 

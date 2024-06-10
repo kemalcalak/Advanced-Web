@@ -41,24 +41,24 @@ function gunaydin($isim = 'Sevgi')
 }
 
 echo '<br/>';
-$selamlama = gunaydin('Haluk');
-echo $selamlama;
+$selamlama = gunaydin('Haluk'); 
+echo $selamlama; // Günaydın Haluk
 
 
 echo '<br/>';
 $ad = 'Hakan';
-echo 'Merhaba ' . $ad . '<br/>';
+echo 'Merhaba ' . $ad . '<br/>'; // Merhaba Hakan
 $yazdir = karsilama();
-echo $yazdir . '<br/>';
-echo karsilama("Selim") . '<br/>';
+echo $yazdir . '<br/>'; // Merhaba Kamil
+echo karsilama("Selim") . '<br/>'; // Merhaba Selim
 function karsilama($ad = 'Kamil')
 {
 	return 'Merhaba ' . $ad;
 }
-echo $ad;
+echo $ad; // Hakan
 echo '<br/>';
 $sebze = 'patlican';
-kozleme();
+kozleme(); // Merhaba patlican
 
 function kozleme()
 {
@@ -74,7 +74,7 @@ function rakamyaz()
 	$rakam++;
 }
 
-for ($i = 0; $i < 10; $i++) {
+for ($i = 0; $i < 10; $i++) { // 0 1 2 3 4 5 6 7 8 9
 	rakamyaz();
 }
 
@@ -91,12 +91,12 @@ function disfonksiyon($isim)
 }
 
 
-echo disfonksiyon("Gülay");
+echo disfonksiyon("Gülay"); // Günaydın Gülay
 echo '<br/>';
-echo icfonksiyon();
+echo icfonksiyon(); // Fatal error: Uncaught Error: Call to undefined function icfonksiyon() 
 echo '<br/>';
 
-function say($n)
+function say($n) 
 {
 	if ($n < 30) {
 		echo  $n . '<br/>';
@@ -105,4 +105,4 @@ function say($n)
 	}
 }
 
-say(1);
+say(1); // 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29

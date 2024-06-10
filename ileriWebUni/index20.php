@@ -22,7 +22,7 @@
 	<?php 
 //$_GET['islem']: browser ın URL sinden çekilir.
 //$_POST['islem']: yukarıdaki formun icindeki islem kastedilmiştir.
-		if(isset($_GET['islem'])=="dort"&&$_POST['islem']!="Ýþlem")
+		if(isset($_GET['islem'])=="dort"&&$_POST['islem']!="islem") 
 		{
 //bir önceki derstte oluşturulmuş fonksiyon kullanıldı.
 			include('dortislem.php');
