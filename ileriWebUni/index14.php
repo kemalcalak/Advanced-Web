@@ -1,6 +1,6 @@
 <?php
-session_start();
-if ($_SESSION["kitap"] = "PHP")
+session_start(); //session başlatılır
+if ($_SESSION["kitap"] = "PHP") //session kontrol edilir
 	echo "Session Oluşturuldu: " . session_id() . "<br/>";
 else
 	echo "Session Oluşturulamadı<br/>";
